@@ -1,0 +1,13 @@
+: 1
+name: tinyobjloader
+version: 1.0.6
+summary: tinyobjloader C++ library
+license: other: proprietary ; Not free/open source.
+description-file: README.md
+url: https://example.org/tinyobjloader
+email: wmbat@protonmail.com
+
+#build-error-email: wmbat@protonmail.com
+
+depends: * build2 >= 0.13.0
+depends: * bpkg >= 0.13.0

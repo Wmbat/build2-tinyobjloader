@@ -1,0 +1,7 @@
+project = tinyobjloader
+
+using version
+using config
+using test
+using install
+using dist

@@ -1,0 +1,33 @@
+intf_libs = # Interface dependencies.
+impl_libs = # Implementation dependencies.
+#import xxxx_libs += libhello%lib{hello}
+
+lib{tinyobjloader}: {hxx cxx}{**} $impl_libs $intf_libs
+
+hxx{export}@./: cxx.importable = false
+
+# Build options.
+#
+cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$src_base/"
+
+{hbmia obja}{*}: cxx.poptions += -DTINYOBJLOADER_STATIC_BUILD
+{hbmis objs}{*}: cxx.poptions += -DTINYOBJLOADER_SHARED_BUILD
+
+# Export options.
+#
+lib{tinyobjloader}:
+{
+  cxx.export.poptions = "-I$out_root" "-I$src_root" "-I$src_base/"
+  cxx.export.libs = $intf_libs
+}
+
+liba{tinyobjloader}: cxx.export.poptions += -DTINYOBJLOADER_STATIC
+libs{tinyobjloader}: cxx.export.poptions += -DTINYOBJLOADER_SHARED
+
+# Install into the tinyobjloader/ subdirectory of, say, /usr/include/
+# recreating subdirectories.
+#
+{hxx}{*}:
+{
+  install         = include/
+}
