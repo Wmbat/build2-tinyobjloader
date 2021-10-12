@@ -4,8 +4,6 @@ impl_libs = # Implementation dependencies.
 
 lib{tinyobjloader}: {hxx cxx}{**} $impl_libs $intf_libs
 
-hxx{export}@./: cxx.importable = false
-
 # Build options.
 #
 cxx.poptions =+ "-I$out_root" "-I$src_root" "-I$src_base/"
